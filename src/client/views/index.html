@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+        <script type="text/javascript" src="../../../dist/main.js"></script>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="header">Travel</div>
+            <div class="">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">About</a></li>
+                  </ul>
+            </div>
+        
+        </header>
+
+        <main>
+            <section>
+                <form class="" >
+                    <label for="generate">My trip to:</label>
+                    <input id="name" type="text" name="input" value="" placeholder="Enter Location">
+                    <button id="generate" class="btn" type = "submit"> Submit </button>
+                    <br>
+                    <label for="travel-date">Departing:</label>
+                    <input type="date" id="travel-date" name="trip-start" value="">
+                </form>
+            </section>
+
+            <section class="entry">
+                <strong>Form Results:</strong>
+                <div id="agreement"></div>
+                <div id="subjectivity"></div>
+                <div id="confidence"></div>
+                <div id="irony"></div>
+
+            </section>
+        </main>
+
+        <footer>
+            <p> Copyright © 2021 </p> 
+            
+        </footer>
+
+      <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>  
+       
+    </body>
+</html>

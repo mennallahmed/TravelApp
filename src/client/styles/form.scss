@@ -1,0 +1,33 @@
+form {
+    border: 1px solid #545454;
+    border-radius: 8px;
+    padding: 40px;
+}
+main {
+    font-size: 18px;
+}
+input {
+    padding: 5px 20px;
+    width: 100%;
+    line-height: 16px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+strong{
+    
+    text-align: center;
+    padding: 20px; 
+}
+
+.entry{
+   // background: rgba(59, 74, 107, .4);
+    background: white;
+    border: none;
+    box-shadow: 2px 4px 5px black;
+    border-radius: 20px;
+    //height: 50px auto;
+    div{
+        padding: 20px;
+       
+    }
+}
