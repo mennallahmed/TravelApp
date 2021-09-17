@@ -36,9 +36,6 @@ app.use(cors(corsOpts));
 // Setup empty JS object
 dataObject = {}
 
-// MeaningCloud API Key
-let apiKey = process.env.API_KEY;
-
 app.use(express.static('dist'))
 
 console.log(__dirname)
@@ -57,11 +54,6 @@ app.get('/test', function (req, res) {
     res.setHeader("Access-Control-Allow-Origin","*")
     res.send(mockAPIResponse)
 })
-
-// Get Api key
-/*app.get('/api', (req, res) => {
-    res.send({ key: apiKey });
-  });*/
   
 // Respond with JS object
 app.get('/all', function (req, res) {
@@ -69,12 +61,37 @@ app.get('/all', function (req, res) {
     res.send(dataObject)
   })
 
-//post data   
-app.post('/addText', (req, res) => {
+//post GeoNames data   
+app.post('/addGeo', (req, res) => {
   dataObject["latitude"] = req.body.latitude;
   dataObject["longitude"] = req.body.longitude;
   dataObject["country"] = req.body.country;
   console.log(dataObject);
   res.send(dataObject);
   });
-console.log(`Your API key is ${process.env.API_KEY}`);
+
+//post Weather data 
+app.post('/addweather', (req, res) => {
+    dataObject["temp"] = req.body.temp;
+    dataObject["description"] = req.body.description;
+    dataObject["icon"] = req.body.icon;
+    console.log(dataObject);
+    res.send(dataObject);
+    });
+
+//post pixabay data 
+app.post('/addPix', (req, res) => {
+  dataObject["image"] = req.body.image;
+  console.log(dataObject);
+  res.send(dataObject);
+  });  
+  
+//post RestCountries data 
+app.post('/addCountry', (req, res) => {
+  dataObject["currency"] = req.body.currency;
+  dataObject["region"] = req.body.region;
+  dataObject["language"] = req.body.language;
+  console.log(dataObject);
+  res.send(dataObject);
+  });   
+
