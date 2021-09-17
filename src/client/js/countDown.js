@@ -1,16 +1,23 @@
+let distance=0;
+let x;
 function  TripDuration(inputText) {
+ 
   const countDown = document.getElementById("travel-date").value;
   let countDownDate = new Date(countDown).getTime();
- 
 
+  //Clear the counter
+  if (x) {
+    clearInterval(x);
+    }
+ 
   // Update the count down every 1 second
-   let x = setInterval(function() {
+   x = setInterval(function() {
   
     // Get today's date and time
     let now = new Date().getTime();
   
     // Find the distance between now and the count down date
-     let distance = countDownDate - now;
+     distance = countDownDate - now;
   
     // Time calculations for days, hours, minutes and seconds
     let days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -18,7 +25,7 @@ function  TripDuration(inputText) {
     let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
   
-    // Display the result in the element with id="demo"
+    // Display the result in the element with
     document.getElementById("irony").innerHTML = days + "d " + hours + "h "
     + minutes + "m " + seconds + "s ";
   
@@ -30,4 +37,4 @@ function  TripDuration(inputText) {
   }, 1000);
 }
 
-export { TripDuration }
+export { TripDuration , distance}
