@@ -66,7 +66,6 @@ app.post('/addGeo', (req, res) => {
   dataObject["latitude"] = req.body.latitude;
   dataObject["longitude"] = req.body.longitude;
   dataObject["country"] = req.body.country;
-  console.log(dataObject);
   res.send(dataObject);
   });
 
@@ -75,14 +74,12 @@ app.post('/addweather', (req, res) => {
     dataObject["temp"] = req.body.temp;
     dataObject["description"] = req.body.description;
     dataObject["icon"] = req.body.icon;
-    console.log(dataObject);
     res.send(dataObject);
     });
 
 //post pixabay data 
 app.post('/addPix', (req, res) => {
   dataObject["image"] = req.body.image;
-  console.log(dataObject);
   res.send(dataObject);
   });  
   
