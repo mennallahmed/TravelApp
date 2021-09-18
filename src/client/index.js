@@ -1,4 +1,4 @@
-import { TripDuration ,distance } from './js/countDown'
+import { TripDuration ,distance, days } from './js/countDown'
 import { init } from './js/app'
 import './styles/resets.scss'
 import './styles/base.scss'
@@ -13,5 +13,6 @@ window.addEventListener('DOMContentLoaded', init);
 export {
   TripDuration,
   distance,
+  days,
   init
  }
