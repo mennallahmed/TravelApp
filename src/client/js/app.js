@@ -12,7 +12,7 @@ async function init (){
   let restCountriesURL='';
   let newCity='';
 
-  const getInfo= async (Geourl)=>{
+  const getInfo = async (Geourl)=>{
     const res = await fetch(Geourl)
     try{
       const data = await res.json();
@@ -62,8 +62,8 @@ async function init (){
   newCity = document.getElementById('name').value
   Geourl = `http://api.geonames.org/searchJSON?q=${newCity}&maxRows=1&username=${GeoNamesAPI_KEY}`; 
 
-  Client.TripDuration();
-
+  const TripD=await Client.TripDuration();
+  
   //Make call to GeoNames API
   const geoData =await getInfo(Geourl);
   const geoRes = await postData('http://localhost:8081/addGeo',{
@@ -72,10 +72,10 @@ async function init (){
     country: geoData.geonames[0].countryName
   });
 
-  if (Client.distance< 604800000) {
+  if (Client.days< 7) {
   
    //Make call to Current Weather API If the trip is within a week
-   console.log(Client.distance);
+   console.log(Client.days);
    weatherURL= `${currentWeatherURL}lat=${geoData.geonames[0].lat}&lon=${geoData.geonames[0].lng}&key=${weatherbitAPI_KEY}`;
    const weatherData =await getInfo(weatherURL);
    const weatherRes = await postData('http://localhost:8081/addweather',{
@@ -90,7 +90,7 @@ async function init (){
   }
   else{
    //Make call to Weather Forecast API If the trip is within more than a week
-   console.log(Client.distance);
+   console.log(Client.days);
    weatherURL=`${dailyForecastURL}lat=${geoData.geonames[0].lat}&lon=${geoData.geonames[0].lng}&key=${weatherbitAPI_KEY}`;
    const weatherData =await getInfo(weatherURL);
    const weatherRes = await postData('http://localhost:8081/addweather',{
