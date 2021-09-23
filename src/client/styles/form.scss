@@ -1,33 +1,95 @@
 form {
-    border: 1px solid #545454;
-    border-radius: 8px;
-    padding: 40px;
+    border-radius: 5px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.925);
+    border: none;
+    box-shadow: 2px 4px 5px rgb(146, 145, 145);
+   
 }
+
 main {
     font-size: 18px;
 }
+
 input {
     padding: 5px 20px;
-    width: 100%;
+    width: 40%;
     line-height: 16px;
     margin: 10px 0;
     font-size: 16px;
+    border: 1px solid rgba(128, 128, 128, 0.596);
+    border-radius: 3px;
+    background-color: rgba(128, 128, 128, 0.068);
 }
-strong{
-    
-    text-align: center;
-    padding: 20px; 
+
+input:hover {
+   
+   border: 1px solid rgba(81, 203, 238, 1);
+   box-shadow:0 0 5px rgba(81, 203, 238, 1);
 }
 
 .entry{
-   // background: rgba(59, 74, 107, .4);
-    background: white;
+    display: none;
+    flex-direction: row;
+    flex:2;
+    max-width: 750px;
+    background: rgba(255, 255, 255, 0.925);
     border: none;
-    box-shadow: 2px 4px 5px black;
-    border-radius: 20px;
-    //height: 50px auto;
-    div{
-        padding: 20px;
-       
+    box-shadow: 2px 4px 5px rgb(146, 145, 145);
+    border-radius: 5px;
+    p{
+        padding:1.5%;
+        display: inline-block;     
     }
+}
+
+#generate{
+    color: #fff;
+    background-color: #017a9be0;
+    width: 12%;
+    height: 35px;
+    font-size: 100%;
+    border: none;
+    box-shadow: 2px 4px 5px rgb(146, 145, 145);
+    border-radius: 4px;
+    float: right;
+}
+
+#generate:hover,
+.Pbtn:hover{    
+   border: 2px solid rgba(81, 203, 238, 1);
+   box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+ 
+#image{
+    width: 30vw;
+    height: 400px;
+    padding: 4%;
+    display: inline;
+} 
+
+#city{
+    font-size: 2em;
+}
+
+#icon{
+    width: 30%;
+    height: 20%;
+}
+
+.weather{
+    float:right;
+}
+
+.Pbtn{
+    background-image: url("/src/client/media/iconsprint.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    width: 40px;
+    height: 35px;
+    border: 2px solid;
+    box-shadow: 2px 0 0 rgb(146, 145, 145);
+    border-radius: 4px;
+    float: right;
+    margin:10%;
 }
