@@ -1,5 +1,3 @@
-let distance=0;
-let days=0;
 let x;
 const TripDuration = async (inputText) => {
  
@@ -19,27 +17,22 @@ const TripDuration = async (inputText) => {
     let now = new Date().getTime();
     
     // Find the distance between now and the count down date
-     distance = countDownDate - now;
+    let distance = countDownDate - now;
   
     // Time calculations for days, hours, minutes and seconds
-    days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
     let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((distance % (1000 * 60)) / 1000);
   
     // Display the result in the element with
-    document.getElementById("irony").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-    console.log(`entered Date: ${countDownDate}`);
-    console.log(`now Date: ${now}`);
-    console.log(`distance: ${distance}`);
-    console.log(`days:${days} hours:${hours} minutes:${minutes} seconda:${seconds}`);
+    document.getElementById("countdown").innerHTML = `Your Trip is in - ${days}d ${hours}h ${minutes}m ${seconds}s`;
     // If the count down is finished, write some text
     if (distance < 0) {
       clearInterval(x);
-      document.getElementById("irony").innerHTML = "EXPIRED";
+      document.getElementById("countdown").innerHTML = "EXPIRED";
     }
   }, 1000);
 }
 
-export { TripDuration , distance, days}
+export { TripDuration}
