@@ -4,11 +4,11 @@ header {
     text-align: center;
     padding: 0;
     font-size: 22px;
-    //border-bottom: 1px solid #444;
+    background-color:rgba(255, 255, 255, 0.795);
     border: none;
-    box-shadow: 2px 4px 5px #444;
-   
+    box-shadow: 1px 2px 3px rgb(146, 145, 145);   
 }
+
 .header{
   padding: 10px;
 }
@@ -30,15 +30,15 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  background-color:black;
-  color: white;
+  color: rgb(88, 88, 88);
 }
 
 a:hover {
-  background-color: rgb(56, 55, 55);
+ color: rgba(81, 203, 238, 1);
 }
 .active {
-  background-color: #1f2422;
+  background-color: rgba(0, 0, 0, 0.719);
+  color: white;
 }
 
  
