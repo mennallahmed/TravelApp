@@ -2,6 +2,10 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    color: rgb(88, 88, 88);
+    background-image: url("/src/client/media/background.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
 }
 
 main {
@@ -12,3 +16,4 @@ section {
     max-width: 800px;
     margin: 50px auto;
 }
+
