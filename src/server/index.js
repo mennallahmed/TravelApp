@@ -11,14 +11,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 // Cors for cross origin allowance
 const cors = require('cors');
-/*app.use(cors());
-app.get('/products/:id', function (req, res, next) {
-  res.json({msg: 'This is CORS-enabled for all origins!'})
-})
- 
-app.listen(80, function () {
-  console.log('CORS-enabled web server listening on port 80')
-})*/
+//app.use(cors());
+
 const corsOpts = {
   origin: '*',
 
@@ -34,7 +28,7 @@ const corsOpts = {
 
 app.use(cors(corsOpts));
 // Setup empty JS object
-dataObject = {}
+let dataObject = {}
 
 app.use(express.static('dist'))
 
@@ -91,4 +85,6 @@ app.post('/addCountry', (req, res) => {
   console.log(dataObject);
   res.send(dataObject);
   });   
+
+module.exports = {app}; 
 
