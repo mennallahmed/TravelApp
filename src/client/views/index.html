@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>Test</title>
-        <script type="text/javascript" src="../../../dist/main.js"></script>
+       <!-- <script type="text/javascript" src="../../../dist/main.js"></script> webpack will link it for you-->
     </head>
 
     <body>
@@ -23,21 +23,44 @@
         <main>
             <section>
                 <form class="" >
-                    <label for="generate">My trip to:</label>
+                    <label>Where would you like to go?</label> <br>
                     <input id="name" type="text" name="input" value="" placeholder="Enter Location">
-                    <button id="generate" class="btn" type = "submit"> Submit </button>
                     <br>
-                    <label for="travel-date">Departing:</label>
+                    <label>Departure date</label>  
+                    <button id="generate" class="btn" type = "submit"> Let's go </button> <br>
                     <input type="date" id="travel-date" name="trip-start" value="">
+                    <br>
+                    
                 </form>
             </section>
 
-            <section class="entry">
-                <strong>Form Results:</strong>
-                <div id="agreement"></div>
-                <div id="subjectivity"></div>
-                <div id="confidence"></div>
-                <div id="irony"></div>
+            <section class="entry" id="result">
+             <div>
+                <img id="image" alt="this is pixbay img">
+             </div>
+             <div>
+                <p id="city"></p>
+                <br>
+                <p id="country"></p>
+                <p id="region"></p>
+                <hr>
+                <br>
+                <img id="icon" alt="Weather icon">
+              
+                <p id="description" class="weather"></p>
+                
+                <p id="temprature" class="weather"></p>
+               
+                <br>
+                <p id="currency"></p>
+                <br>
+                <p id="language"></p>
+                <br>
+                <p id="countdown"></p>
+                <br>
+                <button type="button" class="Pbtn" id="printbtn"></button>
+
+             </div>
 
             </section>
         </main>
@@ -46,7 +69,7 @@
             <p> Copyright © 2021 </p> 
             
         </footer>
-
+<!--
       <script>
             // Check that service workers are supported
             if ('serviceWorker' in navigator) {
@@ -56,6 +79,6 @@
                 });
             }
         </script>  
-       
+     -->  
     </body>
 </html>
