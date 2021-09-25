@@ -6,6 +6,7 @@ async function init (){
   const GeoNamesAPI_KEY="mennaallah";
   const weatherbitAPI_KEY="1fdf42455c844eea89c83db55c2cc95c";
   const PixabayAPI_KEY="23437454-7b2497e9ff571e64a6742ff2d";
+  const countryAPI_KEY="62731e903c3ea4473179f162ea4da4cc";
   let Geourl = '';
   let weatherURL='';
   let currentWeatherURL="http://api.weatherbit.io/v2.0/current?";
@@ -137,7 +138,8 @@ async function init (){
   });
 
   //Make call to RestCountries API 
-  restCountriesURL=`https://restcountries.eu/rest/v2/name/${geoData.geonames[0].countryName}`;  
+  //restCountriesURL=`https://restcountries.eu/rest/v2/name/${geoData.geonames[0].countryName}`; 
+  restCountriesURL=`https://api.countrylayer.com/v2/name/${geoData.geonames[0].countryName}?access_key=${countryAPI_KEY}&FullText=false`; 
   const restData =await getInfo(restCountriesURL);
   const restRes = await postData('http://localhost:8081/addCountry',{
     currency: restData[0].currencies[0].name,
