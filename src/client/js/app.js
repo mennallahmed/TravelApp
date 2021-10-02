@@ -6,7 +6,7 @@ async function init (){
   const GeoNamesAPI_KEY="mennaallah";
   const weatherbitAPI_KEY="1fdf42455c844eea89c83db55c2cc95c";
   const PixabayAPI_KEY="23437454-7b2497e9ff571e64a6742ff2d";
-  const countryAPI_KEY="62731e903c3ea4473179f162ea4da4cc";
+  const countryAPI_KEY="62731e903c3ea4473179f162ea4da4cc"
   let Geourl = '';
   let weatherURL='';
   let currentWeatherURL="http://api.weatherbit.io/v2.0/current?";
@@ -14,6 +14,7 @@ async function init (){
   let urlPixabay ='';
   let restCountriesURL='';
   let newCity='';
+  let countDownDate=0;
 
   //Get APIS data
   const getInfo = async (Geourl)=>{
@@ -56,9 +57,9 @@ async function init (){
       document.getElementById('country').innerHTML = `${allData.country}`;
       document.getElementById('description').innerHTML = `${allData.description}`;
       document.getElementById('temprature').innerHTML = `${allData.temp}℃`;
-      document.getElementById('currency').innerHTML = `${allData.currency}`;
-      document.getElementById('region').innerHTML = `- ${allData.region}`;
-      document.getElementById('language').innerHTML = `${allData.language}`; 
+      //document.getElementById('currency').innerHTML = `${allData.currency}`;
+      //document.getElementById('region').innerHTML = `- ${allData.region}`;
+      //document.getElementById('language').innerHTML = `${allData.language}`; 
       document.getElementById('icon').setAttribute("src", `https://www.weatherbit.io/static/img/icons/${allData.icon}.png`);
       document.getElementById('image').setAttribute("src",`${allData.image}`);
       document.getElementById("result").style.display = "flex";
@@ -67,6 +68,17 @@ async function init (){
       console.log('error', error);
     }
   }
+
+  // Calculate Trip Length
+  const TripLen = async () => {
+    const end = document.getElementById("end-date").value;
+    let endDate = new Date(end).getTime();
+    let lenOfTrip = endDate - countDownDate;
+    // Time calculations for days
+    let days = Math.floor(lenOfTrip / (1000 * 60 * 60 * 24));
+    document.getElementById("trip-len").innerHTML = `Trip Lenght: ${days} days`;
+  }
+
 
  //Event listener to print the trip info
  document.getElementById("printbtn").addEventListener('click',printP);
@@ -80,13 +92,13 @@ async function init (){
 
   //Calculate Trip Duration
   const countDown = document.getElementById("travel-date").value;
-  let countDownDate = new Date(countDown).getTime();
+  countDownDate = new Date(countDown).getTime();
   // Get today's date and time
   let now = new Date().getTime();      
   // Find the distance between now and the count down date
   let distance = countDownDate - now;
   
-
+  TripLen(); 
   newCity = document.getElementById('name').value
   Geourl = `http://api.geonames.org/searchJSON?q=${newCity}&maxRows=1&username=${GeoNamesAPI_KEY}`; 
 
@@ -138,14 +150,14 @@ async function init (){
   });
 
   //Make call to RestCountries API 
-  //restCountriesURL=`https://restcountries.eu/rest/v2/name/${geoData.geonames[0].countryName}`; 
-  restCountriesURL=`https://api.countrylayer.com/v2/name/${geoData.geonames[0].countryName}?access_key=${countryAPI_KEY}&FullText=false`; 
+  //restCountriesURL=`https://restcountries.eu/rest/v2/name/${geoData.geonames[0].countryName}`;  
+ /* restCountriesURL=`http://api.countrylayer.com/v2/name/${geoData.geonames[0].countryName}?access_key=${countryAPI_KEY}&FullText=false`;
   const restData =await getInfo(restCountriesURL);
   const restRes = await postData('http://localhost:8081/addCountry',{
-    currency: restData[0].currencies[0].name,
-    region: restData[0].subregion,
-    language: restData[0].languages[0].name
-  });
+    //currency: restData[0].currencies[0].name,
+    region: restData[0].region,
+    //language: restData[0].languages[0].name
+  });*/
   await updateUI();
     
   
