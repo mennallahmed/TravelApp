@@ -78,13 +78,13 @@ app.post('/addPix', (req, res) => {
   });  
   
 //post RestCountries data 
-app.post('/addCountry', (req, res) => {
+/*app.post('/addCountry', (req, res) => {
   dataObject["currency"] = req.body.currency;
   dataObject["region"] = req.body.region;
   dataObject["language"] = req.body.language;
   console.log(dataObject);
   res.send(dataObject);
-  });   
+  }); */  
 
 module.exports = {app}; 
 
