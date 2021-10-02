@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Test</title>
        <!-- <script type="text/javascript" src="../../../dist/main.js"></script> webpack will link it for you-->
     </head>
@@ -9,7 +9,7 @@
     <body>
 
         <header>
-            <div class="header">Travel</div>
+            <div class="header"></div>
             <div class="">
                 <ul>
                     <li><a href="index.html" class="active">Home</a></li>
@@ -23,13 +23,18 @@
         <main>
             <section>
                 <form class="" >
-                    <label>Where would you like to go?</label> <br>
+                    <label>Where would you like to go?</label> 
+                    <br>
                     <input id="name" type="text" name="input" value="" placeholder="Enter Location">
                     <br>
                     <label>Departure date</label>  
-                    <button id="generate" class="btn" type = "submit"> Let's go </button> <br>
+                    <br>
                     <input type="date" id="travel-date" name="trip-start" value="">
                     <br>
+                    <label>End date</label>  
+                    <button id="generate" class="btn" type = "submit"> Let's go </button> 
+                    <br>
+                    <input type="date" id="end-date" name="trip-end" value="">
                     
                 </form>
             </section>
@@ -45,21 +50,21 @@
                 <p id="region"></p>
                 <hr>
                 <br>
-                <img id="icon" alt="Weather icon">
-              
-                <p id="description" class="weather"></p>
-                
+                <img id="icon" alt="Weather icon">            
+                <p id="description" class="weather"></p>           
                 <p id="temprature" class="weather"></p>
-               
                 <br>
                 <p id="currency"></p>
                 <br>
                 <p id="language"></p>
                 <br>
+                <p id="trip-len"></p>
+                <br>
                 <p id="countdown"></p>
                 <br>
                 <button type="button" class="Pbtn" id="printbtn"></button>
-
+                <br>
+                
              </div>
 
             </section>
@@ -69,7 +74,7 @@
             <p> Copyright © 2021 </p> 
             
         </footer>
-<!--
+
       <script>
             // Check that service workers are supported
             if ('serviceWorker' in navigator) {
@@ -78,7 +83,7 @@
                     navigator.serviceWorker.register('/service-worker.js');
                 });
             }
-        </script>  
-     -->  
+        </script> 
+        
     </body>
 </html>
