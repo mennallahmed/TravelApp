@@ -2,7 +2,7 @@
 Travel app that obtains a desired trip location & date from the user, and displays weather and an image of the location using information obtained from external APIs.
 
 ## Node.js and express
-The server is set up using ```express``` and Node is used to install all the dependencies with ```npm```.
+The server is set up using ```express``` and Node.Js is used to install all the dependencies with ```npm```.
 
 ## Webpack
 This project uses Webpack as the build tool. The configuration can be found on the repository. There are different setups for production and development environments.
